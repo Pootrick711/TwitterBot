@@ -124,7 +124,7 @@ var fs = require('fs');
 processing();
 function processing(){
     console.log("uploaded image");
-    var filename = 'pictures/image1.png';
+    var filename = 'pictures/IMAGE.png';
     
     var parameters = {
         encoding: 'base64'
