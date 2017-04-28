@@ -1,5 +1,5 @@
 //Tells our console that the bot is starting
-console.log("The Bot is starting!");
+console.log("The Bot is starting now!");
 
 //Require the twit package
 var Twit = require('twit');
@@ -56,7 +56,7 @@ function tweetIt() {
     var r = Math.floor(Math.random() * 100);
 
     var tweet = {
-        status: 'Here is the current random number ' + r + '#providencehigh #phs #ecs #2017'
+        status: 'Here is the current random number ' + r + ' #providencehigh #phs #ecs #2017'
     }
 
     T.post('statuses/update', tweet, gotData);
@@ -120,62 +120,45 @@ function tweetIt2(txt) {
 
 
 
-
-var fs = require("fs");
-processing(); 
-function processing(){ 
-    console.log("upload image"); 
-    var filename = "picture/IMAGE.png"; 
-     
-    var parameters = {   
-    encoding:"base64"
+var fs = require('fs');
+processing();
+function processing(){
+    console.log("uploaded image");
+    var filename = 'pictures/image1.png';
     
+    var parameters = {
+        encoding: 'base64'
     }
     
-    var b64 = fs.readFileSync(filename,parameters); 
+    var b64 = fs.readFileSync(filename, parameters);
     
-    //i have to upload before i can tweet it 
-T.post("media/upload",{media_data:b64},uploaded);  
+    //i have to upload before i can tweet it
+    T.post('media/upload', {media_data: b64}, uploaded);
     
-    function uploaded(err,data,response){      
-    //this is where I will tweet my picture 
-    //My picture has a unique ID 
-    var id =data.media_id_string; 
-    var tweet = {    
-    status:"#ECS2017 live from node.js", 
-    media_ids: [id]   
-    
-        }    
-        
-    T.post("statuses/update", tweet,tweeted); 
-        
-        function tweeted(err,data,response){ 
-            if (err){  
-            console.log("Something went wrong!"); 
-            }else{   
-             console.log("It posted!");
-             
-             }
+    function uploaded(err, data, response){
+        //This is where I will tweet! 
+        //My picture has a unique ID
+        var id = data.media_id_string;
+        var tweet = {
             
-            
-            
-            }
-        
-        
-        
-        
+            status: '#ECS2017 live from node.js',
+            media_ids: [id]
         }
+        
+        
+        T.post('statuses/update', tweet, tweeted);
+        
+        function tweeted(err, data, response){
+            
+            if (err){
+                console.log("Something went wrong!");
+            }else{
+                console.log("It posted!");
+            }
+            
+            
+        }
+        
+    }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
