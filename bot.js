@@ -125,17 +125,17 @@ var fs = require("fs");
 processing(); 
 function processing(){ 
     console.log("upload image"); 
-    var filename = "picture/image.png"; 
+    var filename = "picture/IMAGE.png"; 
      
     var parameters = {   
-    encoding:"based64"
+    encoding:"base64"
     
     }
     
     var b64 = fs.readFileSync(filename,parameters); 
     
     //i have to upload before i can tweet it 
-T.post("media/upload",{media_data:b64},upload);  
+T.post("media/upload",{media_data:b64},uploaded);  
     
     function uploaded(err,data,response){      
     //this is where I will tweet my picture 
