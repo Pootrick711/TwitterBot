@@ -47,7 +47,7 @@ var T = new Twit({
 
 
 //POST TWEET
-tweetIt();
+tweetIt();//This is a test 
 
 //setInterval(tweetIt, 1000*45);
 
