@@ -6,9 +6,9 @@ var Twit = require('twit');
 
 //We need to authenticate our twitter
 var T = new Twit({
-    consumer_key: 'Jl4WW592UzPpXF2T0G3pMnQPl',
-    consumer_secret: 'k6pvucIJIJZwdiLC2N8JJenSQ9CJscViCbuLP4XznDHiHA80KI',
-    access_token: '	2239455019-ZHDOzoN49ZBddvqtITywbyUoDhHXVHgtYh6e9sJ',
+    consumer_key: '0WICDQB3foDBmP5b7jSseE2Nn',
+    consumer_secret: 'tPERdIJcx0OMofw2sLDmBqFpD3ot3GXmseywnI1Gv2JG3NWCuX',
+    access_token: '2239455019-ZHDOzoN49ZBddvqtITywbyUoDhHXVHgtYh6e9sJ',
     access_token_secret: '14gcMovkTOk4c2wGCHtYl7zE7iFLudXfcVobj0rotsXaD',
     timeout_ms: 60 * 1000, // optional HTTP request timeout to apply to all requests.
 })
@@ -63,7 +63,7 @@ function tweetIt() {
 
     function gotData(err, data, response) {
         if (err) {
-            console.log("Something went wrong!");
+            console.log("TweetIt went wrong!");
 
         } else {
             console.log("It posted!");
