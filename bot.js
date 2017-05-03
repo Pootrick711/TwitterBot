@@ -47,7 +47,7 @@ var T = new Twit({
 
 
 //POST TWEET
-tweetIt();//This is a test 
+//tweetIt();//This is a test 
 
 //setInterval(tweetIt, 1000*45);
 
@@ -125,7 +125,8 @@ var fs = require('fs');
 processing();
 function processing(){
     console.log("uploaded image");
-    var filename = 'picture/IMAGE.png';
+    var filename = 'picture/IMAGE.png'; 
+    var filename2= 'picture/dank.jpg'
     
     var parameters = {
         encoding: 'base64'
@@ -133,8 +134,16 @@ function processing(){
     
     var b64 = fs.readFileSync(filename, parameters);
     
+    var b65 = fs.readFileSync(filename2, parameters);
+    
     //i have to upload before i can tweet it
     T.post('media/upload', {media_data: b64}, uploaded);
+    T.post('media/upload', {media_data: b65}, uploaded);
+    var tweet = {
+            
+            status: '#ECS2017 live from node.js',
+           
+    }
     
     function uploaded(err, data, response){
         //This is where I will tweet! 
@@ -142,7 +151,7 @@ function processing(){
         var id = data.media_id_string;
         var tweet = {
             
-            status: '#ECS2017 live from node.js',
+            
             media_ids: [id]
         }
         
