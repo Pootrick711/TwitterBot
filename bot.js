@@ -125,9 +125,9 @@ var fs = require('fs');
 processing();
 function processing(){
     console.log("uploaded image");
-    var filename = 'picture/IMAGE.png'; 
-    var filename2= 'picture/dank.jpg';
-    var filename3= 'picture/gif.gif';
+    var filename = 'picture/gif.gif' 
+    var filename2= 'picture/dank.jpg'
+    
     var parameters = {
         encoding: 'base64'
     }
@@ -136,12 +136,12 @@ function processing(){
     
     var b65 = fs.readFileSync(filename2, parameters); 
     
-    var b66 = fs.readFileSync(filename3, parameters);  
+    
     
     //i have to upload before i can tweet it
     T.post('media/upload', {media_data: b64}, uploaded);
     T.post('media/upload', {media_data: b65}, uploaded);
-    T.post('media/upload'),{media_data: b66}, uploaded); 
+     
     var tweet = {
             
             status: '#ECS2017 live from node.js',
@@ -172,6 +172,7 @@ function processing(){
             
         }
         
-    }
+    } 
+
 
 
