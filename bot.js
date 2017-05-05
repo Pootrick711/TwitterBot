@@ -127,7 +127,7 @@ function processing(){
     console.log("uploaded image");
     var filename = 'picture/IMAGE.png'; 
     var filename2= 'picture/dank.jpg'
-    
+    var filename3= 
     var parameters = {
         encoding: 'base64'
     }
@@ -139,6 +139,7 @@ function processing(){
     //i have to upload before i can tweet it
     T.post('media/upload', {media_data: b64}, uploaded);
     T.post('media/upload', {media_data: b65}, uploaded);
+    
     var tweet = {
             
             status: '#ECS2017 live from node.js',
@@ -153,7 +154,7 @@ function processing(){
             
             
             media_ids: [id]
-        }
+        }}
         
         
         T.post('statuses/update', tweet, tweeted);
@@ -171,4 +172,4 @@ function processing(){
         
     }
 
-}
+
