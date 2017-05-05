@@ -156,7 +156,7 @@ function processing(){
             
             
             media_ids: [id]
-        }
+        }}
         
         
         T.post('statuses/update', tweet, tweeted);
