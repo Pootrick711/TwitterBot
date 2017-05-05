@@ -125,7 +125,7 @@ var fs = require('fs');
 processing();
 function processing(){
     console.log("uploaded image");
-    var filename = 'picture/gif.gif' 
+    var filename = 'picture/IMAGE.PNG' 
     var filename2= 'picture/dank.jpg'
     
     var parameters = {
