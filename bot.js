@@ -157,7 +157,7 @@ function processing(){
         //var tweet = {
             
             
-            //media_ids: [id]
+            /media_ids: [id]
         //}
         }
         
