@@ -137,7 +137,7 @@ function processing(){
     var b65 = fs.readFileSync(filename2, parameters); 
     
     
-     var idarray = [];
+    
     //i have to upload before i can tweet it
     T.post('media/upload', {media_data: b64}, uploaded);
     T.post('media/upload', {media_data: b65}, uploaded);
@@ -145,21 +145,19 @@ function processing(){
     var tweet = {
             
             status: '#ECS2017 live from node.js',
-             media_ids: idarray
+           
     }
-    
     
     function uploaded(err, data, response){
         //This is where I will tweet! 
         //My picture has a unique ID
         var id = data.media_id_string;
-        idarray.push(id);  
-        //var tweet = {
+        var tweet = {
             
             
-            //media_ids: [id]
-        //}
-        }
+            media_ids: [id]
+        }}
+        
         
         T.post('statuses/update', tweet, tweeted);
         
@@ -173,8 +171,8 @@ function processing(){
             
             
         }
-    }
-    
+        
+    } 
 
 
 
