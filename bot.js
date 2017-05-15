@@ -85,13 +85,13 @@ function followTweet() {
         var name = eventMsg.source.name;
         var screenName = eventMsg.source.screen_name;
         tweetIt2('@' + screenName + ' how do you do?');
-        
-        
-        
+
+
+
         var fs = require('fs');
         console.log('finished tweet json');
-    var json = JSON.stringify(eventMsg, null, 2);
-    fs.writeFile("tweet.json", json);
+        var json = JSON.stringify(eventMsg, null, 2);
+        fs.writeFile("tweet.json", json);
     }
 }
 
@@ -122,57 +122,61 @@ function tweetIt2(txt) {
 
 
 var fs = require('fs');
-processing();
-function processing(){
+//processing();
+var number = 1; 
+setInterval(processing,1000*60*60*24);
+function processing() {
+     
     console.log("uploaded image");
-    var filename = 'picture/IMAGE.PNG' 
-    var filename2= 'picture/dank.jpg'
-    
+    var filename = "picture/gif " + number +".gif";
+ 
+
     var parameters = {
         encoding: 'base64'
     }
-    
+
     var b64 = fs.readFileSync(filename, parameters);
-    
-    var b65 = fs.readFileSync(filename2, parameters); 
-    
-    
-    
+
+
+
+
+
     //i have to upload before i can tweet it
-    T.post('media/upload', {media_data: b64}, uploaded);
-    T.post('media/upload', {media_data: b65}, uploaded);
-     
-    var tweet = {
-            
-            status: '#ECS2017 live from node.js',
-           
-    }
-    
-    function uploaded(err, data, response){
+    T.post('media/upload', {
+        media_data: b64
+    }, uploaded);
+
+
+
+    function uploaded(err, data, response) {
         //This is where I will tweet! 
         //My picture has a unique ID
         var id = data.media_id_string;
+        
         var tweet = {
-            
-            
+
+            status: '#ECS2017 live from node.js',
             media_ids: [id]
-        }}
-        
-        
+        }
+
+
         T.post('statuses/update', tweet, tweeted);
-        
-        function tweeted(err, data, response){
-            
-            if (err){
+
+        function tweeted(err, data, response) {
+
+            if (err) {
                 console.log("Something went wrong!");
-            }else{
+            } else {
                 console.log("It posted!");
             }
-            
-            
+
+    number = number+1 ;  
+        if (number = 11) 
+        {     
+        number = number-10; 
         }
-        
+    
     } 
-
-
-
+    
+    }
+}
