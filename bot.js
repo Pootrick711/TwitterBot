@@ -124,7 +124,7 @@ function tweetIt2(txt) {
 var fs = require('fs');
 //processing();
 var number = 1;
-setInterval(processing, 3000);
+setInterval(processing, 1000*60*60*24);
 
 function processing() {
     console.log("current number"+number);
@@ -159,11 +159,6 @@ function processing() {
             status: '#ECS2017 live from node.js',
             media_ids: [id]
         }
-        number++;
-        if (number = 11) {
-            number = 1;
-        }
-        console.log("updated number"+number);
         
         
         
@@ -183,4 +178,11 @@ function processing() {
         }
 
     }
+    
+    number++;
+        if (number == 11) {
+            number = 1;
+        }
+        console.log("updated number"+number);
+        
 }
