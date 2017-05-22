@@ -159,9 +159,9 @@ function processing() {
             status: '#ECS2017 live from node.js',
             media_ids: [id]
         }
-        number = number + 1;
+        number++;
         if (number = 11) {
-            number = number - 10;
+            number = 1;
         }
         console.log("updated number"+number);
         
