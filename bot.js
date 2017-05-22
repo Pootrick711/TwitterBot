@@ -124,7 +124,7 @@ function tweetIt2(txt) {
 var fs = require('fs');
 //processing();
 var number = 1; 
-setInterval(processing,1000*60*60*24);
+setInterval(processing,3000);
 function processing() {
      
     console.log("uploaded image");
@@ -167,14 +167,15 @@ function processing() {
             if (err) {
                 console.log("Something went wrong!");
             } else {
-                console.log("It posted!");
-            }
-
-    number = number+1 ;  
+                number = number+1 ;  
         if (number = 11) 
         {     
         number = number-10; 
         }
+                console.log("It posted!");
+            }
+
+    
     
     } 
     
