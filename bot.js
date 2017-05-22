@@ -123,13 +123,14 @@ function tweetIt2(txt) {
 
 var fs = require('fs');
 //processing();
-var number = 1; 
-setInterval(processing,3000);
+var number = 1;
+setInterval(processing, 3000);
+
 function processing() {
-     
+    console.log("current number"+number);
     console.log("uploaded image");
-    var filename = "picture/gif " + number +".gif";
- 
+    var filename = "picture/gif " + number + ".gif";
+
 
     var parameters = {
         encoding: 'base64'
@@ -152,14 +153,20 @@ function processing() {
         //This is where I will tweet! 
         //My picture has a unique ID
         var id = data.media_id_string;
-        
+
         var tweet = {
 
             status: '#ECS2017 live from node.js',
             media_ids: [id]
         }
-
-
+        number = number + 1;
+        if (number = 11) {
+            number = number - 10;
+        }
+        console.log("updated number"+number);
+        
+        
+        
         T.post('statuses/update', tweet, tweeted);
 
         function tweeted(err, data, response) {
@@ -167,17 +174,13 @@ function processing() {
             if (err) {
                 console.log("Something went wrong!");
             } else {
-                number = number+1 ;  
-        if (number = 11) 
-        {     
-        number = number-10; 
-        }
+
                 console.log("It posted!");
             }
 
-    
-    
-    } 
-    
+
+
+        }
+
     }
 }
